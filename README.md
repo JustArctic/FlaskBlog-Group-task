@@ -1,2 +1,14 @@
-# Flask-Website
-give us full marks
+# Burger Recipe - Flask Blog Website
+
+# - How to Run -
+
+
+
+# - Functions -
+
+
+
+# - Features -
+
+
+
