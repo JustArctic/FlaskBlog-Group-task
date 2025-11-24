@@ -4,12 +4,10 @@
 
 
 
-# - Functions -
-
-
-
 # - Features -
-
-
-
+- Login page
+- Registration
+- Home lage
+- Neat layout
+- Run using account
 # - Key Points -
