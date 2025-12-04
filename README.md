@@ -11,8 +11,7 @@
 
 5| Install Flask in the terminal using [pip install flask]
 
-
-6| 
+6| Run the program
 
 7| 
 
