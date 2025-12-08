@@ -5,15 +5,15 @@
 
 2| Download Python (version 3.14 preferred)
 
-3| Launch the folder in Visual Studio Code
+3| Extract the ZIP folder and launch it using Visual Studio Code
 
 4| Install the Python extension in VS Code
 
-5| Install Flask in the terminal using [pip install flask]
+5| Install Flask in the terminal using [pip install flask] NOTE: Make sure PATH is set correctly for the program to run
 
 6| Run the program
 
-7| 
+7| Copy the IP/URL link from the terminal and paste it into a web browser
 
 8| 
 
