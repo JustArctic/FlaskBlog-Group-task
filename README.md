@@ -10,7 +10,7 @@
 4| Install the Python extension in VS Code
 
 5| Install Flask in the terminal using [pip install flask] 
-    NOTE: Make sure PATH is set correctly for the program to run
+    `NOTE: Make sure PATH is set correctly for the program to run`
 
 6| Run the program
 
