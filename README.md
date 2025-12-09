@@ -16,7 +16,7 @@
 
 7| Copy the IP/URL link from the terminal and paste it into a web browser
 
-8| 
+8| Navigate the site
 
 
 # - Features -
@@ -27,3 +27,4 @@
 - Run using account
 
 # - Key Points -
+
