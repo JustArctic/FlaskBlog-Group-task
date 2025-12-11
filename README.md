@@ -26,5 +26,3 @@
 - Neat layout
 - Run using account
 
-# - Key Points -
-
