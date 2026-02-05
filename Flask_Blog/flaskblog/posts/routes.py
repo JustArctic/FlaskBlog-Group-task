@@ -3,6 +3,7 @@ from flask import (render_template, url_for, flash,
 from flask_login import current_user, login_required
 from flaskblog import db
 from flaskblog.models import Post
+from flaskblog.posts.utils import save_post_picture
 from flaskblog.posts.forms import PostForm
 
 posts = Blueprint('posts', __name__)
@@ -14,6 +15,8 @@ def new_post():
     form = PostForm()
     if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
+        if form.picture.data:
+            post.image_file = save_post_picture(form.picture.data)
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created!', 'success')
@@ -38,12 +41,16 @@ def update_post(post_id):
     if form.validate_on_submit():
         post.title = form.title.data
         post.content = form.content.data
+        if form.picture.data:
+            post.image_file = save_post_picture(form.picture.data)
         db.session.commit()
         flash('Your post has been updated!', 'success')
         return redirect(url_for('posts.post', post_id=post.id))
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
+        if form.picture.data:
+            form.picture.data = save_post_picture(form.picture.data)
     return render_template('create_post.html', title='Update Post',
                            form=form, legend='Update Post')
 
