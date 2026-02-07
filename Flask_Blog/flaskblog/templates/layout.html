@@ -63,10 +63,54 @@
             <h3>Search our Cuisine</h3>
             <p class='text-muted'>Find the burger that matches your taste palette best.
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Tags</li>
-                <li class="list-group-item list-group-item-light">Highest Reviews</li>
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Author</li>
+                <li class="list-group-item list-group-item-light p-0">
+                  <div class="dropdown w-100">
+                    <button class="btn btn-light dropdown-toggle w-100 text-left" type="button" data-toggle="dropdown">
+                      Ingredients
+                      </button>
+                      <div class="dropdown-menu w-100">
+                        <a class="dropdown-item" href="#">Beef</a>
+                        <a class="dropdown-item" href="#">Chicken</a>
+                        <a class="dropdown-item" href="#">Fish</a>
+                        <a class="dropdown-item" href="#">Veggie</a>
+                      </div>
+                  </div>
+                </li>
+                <li class="list-group-item list-group-item-light p-0">
+                  <div class="dropdown w-100">
+                    <button class="btn btn-light dropdown-toggle w-100 text-left" type="button" data-toggle="dropdown">
+                      Difficulty
+                      </button>
+                      <div class="dropdown-menu w-100">
+                        <a class="dropdown-item" href="#">Amateur</a>
+                        <a class="dropdown-item" href="#">Moderate</a>
+                        <a class="dropdown-item" href="#">Expert</a>
+                      </div>
+                  </div>
+                </li>
+                <li class="list-group-item list-group-item-light p-0">
+                  <div class="dropdown w-100">
+                    <button class="btn btn-light dropdown-toggle w-100 text-left" type="button" data-toggle="dropdown">
+                      Cooking Time
+                      </button>
+                      <div class="dropdown-menu w-100">
+                        <a class="dropdown-item" href="#">Quick (10-15 mins)</a>
+                        <a class="dropdown-item" href="#">Moderate (15-20 mins)</a>
+                        <a class="dropdown-item" href="#">Long (30+ mins)</a>
+                      </div>
+                  </div>
+                </li>
+                <li class="list-group-item list-group-item-light p-0">
+                  <div class="dropdown w-100">
+                    <button class="btn btn-light dropdown-toggle w-100 text-left" type="button" data-toggle="dropdown">
+                      Post Time
+                      </button>
+                      <div class="dropdown-menu w-100">
+                        <a class="dropdown-item" href="#">Latest Posts</a>
+                        <a class="dropdown-item" href="#">Oldest Posts</a>
+                      </div>
+                  </div>
+                </li>
               </ul>
             </p>
           </div>
@@ -80,5 +124,54 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const exclusiveGroups = {
+            ingredients: ["beef", "chicken", "fish", "veggie"],
+            difficulty: ["easy", "medium", "hard"],
+            cooking_time: ["quick", "moderate", "slow"]
+        };
+        document.querySelectorAll('.tag-option').forEach(item => {
+            item.addEventListener('click', function() {
+                const tagValue = this.getAttribute('data-tag');
+                const tagLabel = this.textContent;
+                const hiddenField = document.querySelector('input[name="tags"]');
+                let current = hiddenField.value ? hiddenField.value.split(",") : [];
+                // Determine which exclusivity group this tag belongs to
+                let groupName = null;
+                for (const group in exclusiveGroups) {
+                    if (exclusiveGroups[group].includes(tagValue)) {
+                        groupName = group;
+                        break;
+                    }
+                }
+                // If tag belongs to an exclusivity group, remove others in that group
+                if (groupName) {
+                    const groupTags = exclusiveGroups[groupName];
+                    // Remove group tags from current list
+                    current = current.filter(t => !groupTags.includes(t));
+                    // Remove badges for that group
+                    document.querySelectorAll('.tag-badge').forEach(badge => {
+                        if (groupTags.includes(badge.dataset.tag)) {
+                            badge.remove();
+                        }
+                    });
+                }
+                // Add tag if not already selected
+                if (!current.includes(tagValue)) {
+                    current.push(tagValue);
+                    const badge = document.createElement('span');
+                    badge.className = "badge badge-secondary mr-2 tag-badge";
+                    badge.dataset.tag = tagValue;
+                    badge.textContent = tagLabel;
+                    document.getElementById('selected-tags').appendChild(badge);
+                }
+                hiddenField.value = current.join(",");
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

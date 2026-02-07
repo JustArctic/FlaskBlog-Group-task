@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .article-title {
-  color: #444444;
+  color: #576F7F;
 }
 
 a.article-title:hover {
@@ -43,6 +43,15 @@ a.article-title:hover {
 
 .article-content {
   white-space: pre-line;
+}
+
+.article-read-more {
+  color: #d16993;
+}
+
+a.article-read-more:hover {
+  color: #428bca;
+  text-decoration: none;
 }
 
 .article-img {
