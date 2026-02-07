@@ -15,3 +15,16 @@ def save_post_picture(form_picture):
     i.save(picture_path)
 
     return picture_fn
+
+TAG_LABELS = {
+    'beef': 'Beef',
+    'chicken': 'Chicken',
+    'fish': 'Fish',
+    'veggie': 'Veggie',
+    'easy': 'Amateur',
+    'medium': 'Proficient',
+    'hard': 'Expert',
+    'quick': 'Quick',
+    'moderate': 'Moderate',
+    'slow': 'Slow'
+}

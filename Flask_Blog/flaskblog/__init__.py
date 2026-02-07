@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
 from flaskblog.config import Config
+from flaskblog.posts.utils import TAG_LABELS
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -29,5 +30,9 @@ def create_app(config_class=Config):
     app.register_blueprint(posts)
     app.register_blueprint(main)
     app.register_blueprint(errors)
+
+    @app.context_processor 
+    def inject_tag_labels():
+        return dict(tag_labels=TAG_LABELS)
 
     return app
