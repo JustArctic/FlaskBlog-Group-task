@@ -44,36 +44,38 @@
                     {{ form.picture(class="form-control-file") }}
                 {% endif %}
             </div>
-            <div class="form-group">
-                {{ form.tags.label(class="form-control-label") }}
-                {% if form.tags.errors %}
-                    {{ form.tags(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid feedback">
-                        {% for error in form.tags.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <div class="d-flex align-items-center flex-wrap mr-2">
-                            <div class="dropdown d-inline-block">
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle mr-2" type="button" data-toggle="dropdown">Add Tag</button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item tag-option" data-tag="beef">Beef</a>
-                                    <a class="dropdown-item tag-option" data-tag="chicken">Chicken</a>
-                                    <a class="dropdown-item tag-option" data-tag="fish">Fish</a>
-                                    <a class="dropdown-item tag-option" data-tag="veggie">Veggie</a>
-                                    <a class="dropdown-item tag-option" data-tag="easy">Amateur</a>
-                                    <a class="dropdown-item tag-option" data-tag="medium">Proficient</a>
-                                    <a class="dropdown-item tag-option" data-tag="hard">Expert</a>
-                                    <a class="dropdown-item tag-option" data-tag="quick">Quick</a>
-                                    <a class="dropdown-item tag-option" data-tag="moderate">Moderate</a>
-                                    <a class="dropdown-item tag-option" data-tag="slow">Slow</a>
+            {% if category != 'blog' %}
+                <div class="form-group">
+                    {{ form.tags.label(class="form-control-label") }}
+                    {% if form.tags.errors %}
+                        {{ form.tags(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid feedback">
+                            {% for error in form.tags.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="d-flex align-items-center flex-wrap mr-2">
+                                <div class="dropdown d-inline-block">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle mr-2" type="button" data-toggle="dropdown">Add Tag</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item tag-option" data-tag="beef">Beef</a>
+                                        <a class="dropdown-item tag-option" data-tag="chicken">Chicken</a>
+                                        <a class="dropdown-item tag-option" data-tag="fish">Fish</a>
+                                        <a class="dropdown-item tag-option" data-tag="veggie">Veggie</a>
+                                        <a class="dropdown-item tag-option" data-tag="easy">Amateur</a>
+                                        <a class="dropdown-item tag-option" data-tag="medium">Proficient</a>
+                                        <a class="dropdown-item tag-option" data-tag="hard">Expert</a>
+                                        <a class="dropdown-item tag-option" data-tag="quick">Quick</a>
+                                        <a class="dropdown-item tag-option" data-tag="moderate">Moderate</a>
+                                        <a class="dropdown-item tag-option" data-tag="slow">Slow</a>
+                                    </div>
                                 </div>
-                            </div>
-                        <div id="selected-tags"></div>
-                    </div>
-                {% endif %}
-            </div>
+                            <div id="selected-tags"></div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
         </fieldset>
         <div class="form-group">
             {{ form.submit(class="btn btn-outline-info") }}

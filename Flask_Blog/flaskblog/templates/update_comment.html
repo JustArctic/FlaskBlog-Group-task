@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h3>Update Comment</h3>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.content(class="form-control") }}
+    </div>
+    {{ form.submit(class="btn btn-outline-info") }}
+  </form>
+{% endblock %}

@@ -22,6 +22,12 @@
               {% else %} 
                 <p class="article-content">{{ post.content }}</p> 
             {% endif %}
+            <div class="border-top pt-2 mt-2 d-flex align-items-center">
+              {% if post.comments|length > 0 %}
+                <a class="text-muted mr-3" href="{{ url_for('posts.post', post_id=post.id) }}#comments"><small><i>Comments ({{ post.comments|length }})</i></small></a>
+              {% endif %}
+              <a href="#" class="copy-link text-muted" data-url="{{ url_for('posts.post', post_id=post.id, _external=True) }}"><small><i class="copy-text">Share ↻</i></small></a>
+            </div>
           </div>
         </article>
     {% endfor %}

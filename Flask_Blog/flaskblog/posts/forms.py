@@ -10,3 +10,8 @@ class PostForm(FlaskForm):
     picture = FileField('Image', validators=[FileAllowed(['jpg', 'png'])])
     tags = HiddenField('Tags')
     submit = SubmitField('Post')
+
+
+class CommentForm(FlaskForm): 
+    content = TextAreaField('Share your thoughts...', validators=[DataRequired()])
+    submit = SubmitField('Post Comment')
