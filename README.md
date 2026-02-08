@@ -1,28 +1,13 @@
-# Burger Recipe - Flask Blog Website
+### Step-by-Step Installation
+1. Click the green "Code" button on GitHub page and click "Download ZIP"
+2. Navigate to "Flask-Website-Assessment-Task-1-main.zip" and open it by **Extracting** or third-party software such as [WinRAR](https://www.win-rar.com/download.html?&L=0)
+3. Drag out the **Flask-Website-Task-1-main folder** from inside the ZIP file or from the folder created by **extracting** (if extraction method was used) to any suitable location of your choosing
+4. Rename **env.default file** in **Flask_Blog folder** to **.env**
+5. Double-click **run.bat file** to kickstart website locally
+6. **Ctrl + L-Click** website URL to access website
 
-# - How to Run -
-1| Download the folder as ZIP from GitHub
-
-2| Download Python (version 3.14 preferred)
-
-3| Extract the ZIP folder and launch it using Visual Studio Code
-
-4| Install the Python extension in VS Code
-
-5| Install Flask in the terminal using [pip install flask] 
-    `NOTE: Make sure PATH is set correctly for the program to run`
-
-6| Run the program
-
-7| Copy the IP/URL link from the terminal and paste it into a web browser
-
-8| Navigate the site
-
-
-# - Features -
-- Login page
-- Registration
-- Home page
-- Neat layout
-- Run using account
-
+## Technologies Used
+- **Python** 🐍  
+- **HTML**
+- **CSS**
+- **JAVASCRIPT**
