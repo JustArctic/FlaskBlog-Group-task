@@ -10,16 +10,18 @@ from flaskblog.posts.utils import TAG_LABELS
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-login_manager.login_view = 'users.login'
-login_manager.login_message_category = 'info'
+login_manager.login_view = 'users.login' # Redirect unauthorized users to login page
+login_manager.login_message_category = 'info' # Flash category for login-required messages
 mail = Mail()
 
-
+# Initialize extensions without app context (Flask application factory pattern)
 def load_admin_user():
-        from flaskblog.models import User
-        
+        from flaskblog.models import User # Import inside function to avoid circular imports
+
+        # Retrieve admin credentials from environment variables
         email = os.environ.get("ADMIN_EMAIL")
         password = os.environ.get("ADMIN_PASSWORD")
+
         # Check if admin already exists by email 
         admin = User.query.filter_by(email=email).first()
         if not admin:
@@ -32,14 +34,17 @@ def load_admin_user():
 
 
 def create_app(config_class=Config):
+    # Create Flask application instance
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(Config) # Load configuration settings
 
+    # Initialize extensions with the app context
     db.init_app(app)
     bcrypt.init_app(app)
     login_manager.init_app(app)
     mail.init_app(app)
 
+    # Register blueprints for modular route organization
     from flaskblog.users.routes import users
     from flaskblog.posts.routes import posts
     from flaskblog.main.routes import main
@@ -49,6 +54,7 @@ def create_app(config_class=Config):
     app.register_blueprint(main)
     app.register_blueprint(errors)
 
+    # Make TAG_LABELS available in all Jinja templates
     @app.context_processor 
     def inject_tag_labels():
         return dict(tag_labels=TAG_LABELS)

@@ -15,10 +15,8 @@
 <hr>
 {% for comment in comments.items %}
   <div class="media mb-3">
-    <img class="rounded-circle mr-3"
-         src="{{ url_for('static', filename='profile_pics/' + comment.author.image_file) }}"
-         width="50">
-
+    <img class="comment-avatar mr-3"
+         src="{{ url_for('static', filename='profile_pics/' + comment.author.image_file) }}">
     <div class="media-body">
       <!-- AUTHOR + BUTTONS ROW -->
       <div class="d-flex justify-content-between align-items-start">
