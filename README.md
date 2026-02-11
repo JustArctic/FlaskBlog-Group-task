@@ -29,4 +29,4 @@ A clean, interactive and highly accessible cooking blog website featuring variou
 ## Credits
 - Coded by Kaleb Vong with help from tutorials by [Corey Schafer](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH) and [Artificial Intelligence](https://copilot.microsoft.com/)
 - Documentation by Allan Luong
-- Presentation by Danny Trieu Nguyen
+- Presentation and Finalisation by Danny Trieu Nguyen
