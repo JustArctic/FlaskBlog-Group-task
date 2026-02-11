@@ -1,4 +1,4 @@
-# Best Burgers Website - Flask-Blog-Assessment-Task-1
+# Best Burgers Website - Flask Blog Assessment Task 1
 A clean, interactive and highly accessible cooking blog website featuring various different delicious burger recipes, built with the Python Flask library, HTML, CSS and JavaScript.
 
 ## Features 
