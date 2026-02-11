@@ -9,7 +9,7 @@ A clean, interactive and highly accessible cooking blog website featuring variou
 - Admin privileges for trusted users capable of editing and deleting posts created by anyone
 
 ## Installation Guide
-### Prerequisites
+### Requirements
 - Python (version 3.x or higher) and PIP (version 25.x or higher)
 
 ### Step-by-Step Installation
